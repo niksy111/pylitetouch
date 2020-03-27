@@ -70,6 +70,12 @@ class LiteTouch(Thread):
         _LOGGER.debug("pylt set brightness: %s, %s", (loadid, level))
         self._send(f"R,CINLL, {loadid}, {level}")
 
+        
+    def set_clock(self, loadid: str):
+        """Set clock"""
+        loadid = str(loadid - 1)
+        self._send(f"R,DSCLK,{loadid}")
+        
     def set_loadon(self, loadid: str):
         """Turn Load on."""
         loadid = str(loadid - 1)
