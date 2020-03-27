@@ -108,19 +108,20 @@ class LiteTouch(Thread):
     def get_led_state(self, keypad, button=1):
         """Get Keypad LED States"""
         # zero based buttons
-        button = int(button) - 1
+        
         try:
             if "_" in keypad:
                 button = keypad.split("_")[1]
-                button = button - 1
+                button = int(button) - 1
                 keypad = keypad.split("_")[0]
                 keypad = str(keypad).zfill(3).upper()
                 msg = f"R,CGLED,{keypad}{button}"
-                time.sleep(0.2)
+                time.sleep(0.4)
                 self._send(msg, ltcmd="CGLED", keypad=keypad, button=button + 1)
 
         except:
             keypad = str(keypad).zfill(3).upper()
+            button = int(button) - 1
             msg = f"R,CGLED,{keypad}{button}"
             self._send(msg, ltcmd="CGLED", keypad=keypad, button=button + 1)
 
@@ -223,7 +224,8 @@ class LiteTouch(Thread):
                 kb = [kb, status]
                 self._callback("CGLES", kb)
         else:
-            status = resplist[3]
+            status = int(resplist[3])
+            
             kb = str(keypad) + "_" + str(button)
             kb = [kb, status]
             self._callback("CGLED", kb)
