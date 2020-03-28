@@ -11,7 +11,7 @@ setuptools.setup(
     description="LiteTouch 5000LC",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/patmann03/pylitetouch",
+    url="https://github.com/niksy111/pylitetouch",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
