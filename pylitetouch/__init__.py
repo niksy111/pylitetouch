@@ -1,1 +1,1 @@
-name = "pylitetouch"
+name = "pylitetouch2"
