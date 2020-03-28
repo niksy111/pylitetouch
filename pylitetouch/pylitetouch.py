@@ -73,8 +73,6 @@ class LiteTouch(Thread):
         
     def set_clock(self, loadid: str):
         """Set clock"""
-        loadid = str(loadid - 1)
-        
         clock=datetime.today().strftime('%Y%m%d%H%M%S')
         self._send(f"R,DSCLK,{clock}")
         
