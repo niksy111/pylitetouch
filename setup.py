@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pylitetouch",  # Replace with your own username
+    name="pylitetouch2",  # Replace with your own username
     version="0.1.0",
     author="Patrick Carr",
     author_email="patrick.carr03@gmail.com",
