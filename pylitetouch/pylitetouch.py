@@ -3,7 +3,7 @@ from threading import Thread
 import select
 import logging
 import time
-
+from datetime import datetime
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -74,7 +74,9 @@ class LiteTouch(Thread):
     def set_clock(self, loadid: str):
         """Set clock"""
         loadid = str(loadid - 1)
-        self._send(f"R,DSCLK,{loadid}")
+        
+        clock=datetime.today().strftime('%Y%m%d%H%M%S')
+        self._send(f"R,DSCLK,{clock}")
         
     def set_loadon(self, loadid: str):
         """Turn Load on."""
